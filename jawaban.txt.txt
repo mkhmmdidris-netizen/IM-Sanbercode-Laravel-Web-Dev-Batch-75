@@ -1,0 +1,39 @@
+1. Buat Data Base
+CREATE DATABASE myshop;
+
+2. Buat Tabel
+- users
+CREATE TABLE users( id int AUTO_INCREMENT PRIMARY KEY, name varchar(255) NOT null, email varchar(255) NOT null, password varchar(255) NOT null );
+- categories
+CREATE TABLE categories( id int AUTO_INCREMENT PRIMARY KEY, name varchar(255) NOT null );
+- items 
+CREATE TABLE items( id int AUTO_INCREMENT PRIMARY KEY, name varchar(255), description varchar(255), price int NOT null, stock int NOT null, category_id int NOT null, FOREIGN KEY (category_id) REFERENCES categories(id) );
+
+3. INSERT DATA
+- users
+INSERT INTO users (name, email, password) VALUES ('John Doe', 'john@doe.com', 'john123'), ('Jane Doe', 'jane@doe.com', 'jenita123');
+
+- categories
+INSERT INTO categories (name) VALUES ("gadget"), ("cloth"), ("men"), ("women"), ("branded");
+
+- items
+INSERT INTO items (name, description, price, stock, category_id) VALUES ("Sumsang b50", "hape keren dari merk sumsang", 4000000, 100, 1);
+
+INSERT INTO items (name, description, price, stock, category_id) VALUES ("Uniklooh", "baju keren dari brand ternama", 500000, 50, 2);
+
+INSERT INTO items (name, description, price, stock, category_id) VALUES ("IMHO Watch", "jam tangan anak yang jujur banget", 2000000, 10, 1);
+
+4. Select Data
+- 4a. Buatlah sebuah query untuk mendapatkan data seluruh user pada table users. Sajikan semua field pada table users KECUALI password nya.
+SELECT id, name, email from users;
+
+- 4b. Mengambil data items
+SELECT * FROM items where price > 1000000;
+SELECT * FROM items WHERE name LIKE "&sang&";
+
+- 4c. Buatlah sebuah query untuk menampilkan data items yang dilengkapi dengan data nama kategori di masing-masing items (gunakan join). Berikut contoh tampilan data yang ingin didapatkan
+
+SELECT items.* , categories.name AS kategori from items INNER JOIN categories ON items.category_id = categories.id;
+
+5. Update Data 
+UPDATE items SET price = 25000 where id = 1;
