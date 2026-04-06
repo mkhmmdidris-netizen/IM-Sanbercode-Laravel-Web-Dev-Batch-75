@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('product_id');
  
-            $table->foreign('products')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products');
 
             $table->enum('type', ["IN", "OUT"]);
             $table->integer('amount');
