@@ -2,8 +2,12 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="{{asset('template/src/assets/images/logos/logo-light.svg')}}" alt="" />
+          <a href="#" class="text-nowrap logo-img">
+    
+          <h3 class="fw-bold text-primary text-uppercase tracking-widest" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+               {{ Auth::user()->name }}
+          </h3>
+    
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -28,15 +32,36 @@
               <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
               <span class="hide-menu">FORM</span>
             </li>
+
+        
+              @if (Auth::check() && Auth::user()->role === 'admin')
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/register" aria-expanded="false">
+              <a class="sidebar-link" href="/categories" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
-                <span class="hide-menu">Form Input</span>
+                <span class="hide-menu">Category</span>
               </a>
             </li>
-            
+            @endif
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/product" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Product</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/transaction" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:wallet-money-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Transaction</span>
+              </a>
+            </li>
+
         </nav>
         <!-- End Sidebar navigation -->
       </div>

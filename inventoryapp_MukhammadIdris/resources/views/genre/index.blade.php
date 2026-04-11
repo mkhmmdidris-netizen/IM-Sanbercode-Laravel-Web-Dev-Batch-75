@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('judul')
-    Tampil Categoies
+    Tampil Categories
 @endsection
 @section('content')
 

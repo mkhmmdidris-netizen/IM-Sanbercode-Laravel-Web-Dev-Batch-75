@@ -1,7 +1,5 @@
 @extends('layouts.master')
-@section('judul')
-    Home
-@endsection
+@section('judul', 'Home')
 @section('content')
        
     <h2>Social Media Developer Santai Berkualitas </h2>
